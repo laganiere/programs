@@ -1,0 +1,157 @@
+<h2>III - Exemples</h2>
+<a name="1"><h3>1. L'horloge (version 1)</h3></a>
+
+<blockquote id="Horloge1cpp">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge1.cpp", "Horloge1cpp", "Horloge1.cpp");
+    </script>
+</blockquote><br/>
+
+<blockquote id="Horloge1h">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge1.h", "Horloge1h", "Horloge1.h");
+    </script>
+</blockquote><br/>
+
+<blockquote id="TestA">
+	<script type="text/javascript">
+        loadCode("programs/exemple/TestA.cpp", "TestA", "TestA.cpp");
+    </script>
+</blockquote><br/>
+
+
+<p><a href="#top"><img src="images/arrow.gif" border=0 width=20 />Haut de la page</a></p>
+
+<a name="2"><h3>2. L'horloge (version 2)</h3></a>
+
+<blockquote id="Horloge2h">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge2.h", "Horloge2h", "Horloge2.h");
+    </script>
+</blockquote><br/>
+
+<blockquote id="TestB">
+	<script type="text/javascript">
+        loadCode("programs/exemple/TestB.cpp", "TestB", "TestB.cpp");
+    </script>
+</blockquote><br/>
+
+<p><a href="#top"><img src="images/arrow.gif" border=0 width=20 />Haut de la page</a></p>
+
+<a name="3"><h3>3. L'horloge (version 3)</h3></a>
+<br/>
+On ne peut pas changer:
+<ul>
+    <li>Arité : binaire vs unaire</li>
+    <li>Priorité (a + b * c</li>
+    <li>Ordre d’évaluation (a + b + c</li>
+</ul>
+
+Si on a a=b+c
+<ol>
+    <li type="1">operateur +</li>
+    <li type="1">appelle au constructeur copieur (anonyme)</li>
+    <li type="1">operateur +=</li>
+    <li type="1">destructeur (anonyme)</li>
+</ol>
+
+Si on a a+=rhs; return a;
+<ol>
+    <li type="1">operateur +</li>
+    <li type="1">appelle au constructeur copieur (a)</li>
+    <li type="1">operateur +=</li>
+    <li type="1">appelle au constructeur copieur (a (anonyme))</li>
+    <li type="1">destructeur (a)</li>
+    <li type="1">destructeur anonyme</li>
+</ol>
+
+
+<blockquote id="Horloge3cpp">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge3.cpp", "Horloge3cpp", "Horloge3.cpp");
+    </script>
+</blockquote><br/>
+
+<blockquote id="Horloge3h">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge3.h", "Horloge3h", "Horloge3.h");
+    </script>
+</blockquote><br/>
+
+<blockquote id="TestC">
+	<script type="text/javascript">
+        loadCode("programs/exemple/TestC.cpp", "TestC", "TestC.cpp");
+    </script>
+</blockquote><br/>
+
+<p><a href="#top"><img src="images/arrow.gif" border=0 width=20 />Haut de la page</a></p>
+
+<a name="4"><h3>4. L'horloge (version 4)</h3></a>
+
+<blockquote id="Horloge4cpp">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge4.cpp", "Horloge4cpp", "Horloge4.cpp");
+    </script>
+</blockquote><br/>
+
+<blockquote id="Horloge4h">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge4.h", "Horloge4h", "Horloge4.h");
+    </script>
+</blockquote><br/>
+
+<blockquote id="TestD">
+	<script type="text/javascript">
+        loadCode("programs/exemple/TestD.cpp", "TestD", "TestD.cpp");
+    </script>
+</blockquote><br/>
+
+<p><a href="#top"><img src="images/arrow.gif" border=0 width=20 />Haut de la page</a></p>
+
+<a name="5"><h3>5. L'horloge (version 5)</h3></a>
+
+<blockquote id="Horloge5cpp">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge5.cpp", "Horloge5cpp", "Horloge5.cpp");
+    </script>
+</blockquote><br/>
+
+<blockquote id="Horloge5h">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge5.h", "Horloge5h", "Horloge5.h");
+    </script>
+</blockquote><br/>
+
+<blockquote id="TestE">
+	<script type="text/javascript">
+        loadCode("programs/exemple/TestE.cpp", "TestE", "TestE.cpp");
+    </script>
+</blockquote><br/>
+
+<p><a href="#top"><img src="images/arrow.gif" border=0 width=20 />Haut de la page</a></p>
+
+<a name="6"><h3>6. Le sac</h3></a>
+
+<blockquote id="Sach">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Sac.h", "Sach", "Sac.h");
+    </script>
+</blockquote><br/>
+
+<blockquote id="Horloge4hb">
+	<script type="text/javascript">
+        loadCode("programs/exemple/Horloge4.h", "Horloge4hb", "Horloge4.h");
+    </script>
+</blockquote><br/>
+
+<blockquote id="TestF">
+	<script type="text/javascript">
+        loadCode("programs/exemple/TestF.cpp", "TestF", "TestF.cpp");
+    </script>
+</blockquote><br/>
+
+<p><a href="#top"><img src="images/arrow.gif" border=0 width=20 />Haut de la page</a></p>
+
+<a name="6"><h3>7. Le pointeur intélligent</h3></a>
+
+<p><a href="#top"><img src="images/arrow.gif" border=0 width=20 />Haut de la page</a></p>
