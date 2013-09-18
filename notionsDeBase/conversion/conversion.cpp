@@ -35,7 +35,7 @@ int main()
     std::cout << "unsigned float + short assigne a un int : y="
             << y << std::endl;
 
-    return 1;
+    return 0;
 
     /*--------------- resultat ------------------------*\
       float assigne aun int : y=3
