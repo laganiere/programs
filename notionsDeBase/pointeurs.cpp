@@ -23,13 +23,15 @@ int main() {
     int b = 3;
     const int c = 2;
     int const *pa; // pointeur à des const int
+    const int *paa; // pointeur à des const int
 
     pa = &b; // ne peut pas être utilisé pour modifier b
 
-    const int *pb = &b; // pointeur constant à des int
+    int * const pb = &b; // pointeur constant à des int
 
 
     int const* const pa2 = &a; // pointeur constant à des const int
+    const int * const paa2 = &a; // pointeur constant à des const int
 
     int *px; // pointeur à des entiers
     int **ppx; // pointeur à un pointeur

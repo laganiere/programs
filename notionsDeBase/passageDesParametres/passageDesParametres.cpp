@@ -35,9 +35,9 @@ int fct5(int &a) {
 
 // **A ne jamais faire!!**
 // On ne retourne jamais une reference a une variable locale!!
- int fct6(int a) {
-     a = a*2;
-     return a;
+ int &fct6(int a) {
+     int b = a*2;
+     return b;
 }
 
 // Retour de pointeur

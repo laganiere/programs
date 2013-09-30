@@ -2,14 +2,12 @@
 #include <iostream>
 
 int main() {
-    int *p = new int[5]; // variable
-    int a[5]; // constante
+    int a;
+    int x(2.8);
 
-    p[2] = 2;
+    a= static_cast<int>(8.1*x);
+    // ou pour arrondir le resultat
+    a= static_cast<int>(8.1*x + 0.5);
 
-    delete[] p;
-
-    float *pp = new float;
-    *pp = 2.1;
-    delete pp;
+    return 0;
 }

@@ -23,7 +23,7 @@ int main() {
 
     r = n; // equivaut à r = &n[0]
     int e = (*r)[2]; // 3e element dan un tableau de 4
-    int *e2 = &n[1][2]; // 3e element du 2e tableau
+    int *e2 = &n[1][2]; // 3e element du 1e tableau
 
     char ch1 = 'a';
     char ch2 = 'b';
@@ -39,7 +39,7 @@ int main() {
     p2 = reinterpret_cast<int*>(tab);
 
     typedef int tab4[4];
-    tab4 b; // equivaut a int a[4]
+    tab4 b; // equivaut a int b[4]
     int d[3][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
 
     // p est un pointeur a un tableau de 4

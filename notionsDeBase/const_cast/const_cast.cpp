@@ -14,7 +14,8 @@ int main() {
     c = const_cast<int*>(b);
 
     fct(c);
-    // *b = 10, *c = 10 - NON!
+    // *b = 10; invalide! 
+    // *c = 10; comportement non-defini!
     std::cout << "*b=" << *b
             << ", *c=" << *c << std::endl;
 

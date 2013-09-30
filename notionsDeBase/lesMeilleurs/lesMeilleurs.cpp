@@ -1,12 +1,16 @@
 
 #include <iostream>
 
-int* trouverLesMeilleurs(int a[], int dim, int n, int meilleur[]) {
+int* trouverLesMeilleurs(int a[], int dim, int n) {
+
+    // n < dim !
+    int *meilleur= new int[n];
+
     for (int i = 1; i < n; i++) {
         meilleur[i] = INT_MIN;
-        meilleur[0] = a[0];
+    meilleur[0] = a[0];
 
-        for (int i = 1; i < dim; i++) {
+    for (int i = 1; i < dim; i++) {
             for (int j = 0; j < n; j++) {
                 if (a[i] > meilleur[j]) {
                     for (int k = n-1; k < j; k--) {
@@ -17,6 +21,7 @@ int* trouverLesMeilleurs(int a[], int dim, int n, int meilleur[]) {
              }
         }
     }
+
     return meilleur;
 }
 
