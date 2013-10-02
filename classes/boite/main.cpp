@@ -33,12 +33,16 @@ int main()
 
         Boite c=b;
 
-        cout << "Appel Ã  fct1" << endl;
+        cout << "Appel Ã  fct1" << endl;
         fct1(c);
 
-        cout << "Appel Ã  fct2" << endl;
+        cout << "Appel Ã  fct2" << endl;
 
-        Boite e=fct2();
+        Boite e(fct2());
+
+        cout << "Appel Ã  fct2" << endl;
+
+        e= fct2();
 
         e.vide();
         b.vide();
@@ -50,12 +54,19 @@ int main()
          constructeur - int
          CrÃ©ation de c
          constructeur - copieur
-         Appel Ã  fct1
+         Appel Ã  fct1
          constructeur - copieur
          Dans fct1
-         Appel Ã  fct2
+         Appel Ã  fct2
          Dans fct2
          constructeur - int
          Fin de fct2
+         constructeur - copieur
+         Appel Ã  fct2
+         Dans fct2
+         constructeur - int
+         Fin de fct2
+         constructeur - copieur
+
         \*-------------------------------------------------*/
 }
