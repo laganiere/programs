@@ -18,7 +18,7 @@ public:
     IterateurSac(Sac<T> &leSac): leSac(leSac), index(0) {}
     bool operator!() const {return index < leSac.getTaille();}
     IterateurSac& operator++() {index++; return *this;}
-    T operator*() {return leSac.getSac()[index];}
+    T operator*() {return leSac.sac[index];}
 };
 
 #endif // ITERATEURSAC_H

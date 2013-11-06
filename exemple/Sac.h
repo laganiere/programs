@@ -2,7 +2,7 @@
 #ifndef SAC_H
 #define SAC_H
 
-#include <cstdlib>
+#include <stdlib>
 #include <iostream>
 #include <stdexcept>
 using namespace std;
@@ -23,10 +23,8 @@ public:
 
     Sac() : taille(0), capacite(capInitial) {
         sac= new T[capacite];
-        //initialisation du générateur aléatoire
-        srand(15);
     }
-    Sac(int cap) : taille(0), capacite(cap) {
+    explicit Sac(int cap) : taille(0), capacite(cap) {
         if (capacite<=0) capacite=capInitial;
         sac= new T[capacite];
     }
@@ -38,8 +36,8 @@ public:
     Sac& operator+=(Sac &b);
     T operator*();
 
-    int getTaille() { return taille; }
-    int getCapacite() { return capacite; }
+    int getTaille() const { return taille; }
+    int getCapacite() const { return capacite; }
 };
 
 
@@ -72,8 +70,7 @@ Sac<T,capInitial>& Sac<T,capInitial>::
         operator+=(Sac &b) {
 
     for(int i=0; i<b.getTaille(); i++){
-        sac += b.sac[i];
-        taille++;
+        *this += b.sac[i];
     }
 
     return *this;
@@ -101,7 +98,7 @@ template <class T, int capInitial>
 void Sac<T,capInitial>::
         copier(const Sac &b) {
 
-    delete sac;
+    delete[] sac;
 
     capacite= b.capacite;
     taille= b.taille;
