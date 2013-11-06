@@ -12,8 +12,8 @@ int main()
     c.broute();
 
     float w = c.getPoids();
-    cout << "La poule pèse "
-            << w << " lbs après avoir brouté." << endl;
+    cout << "La poule pese "
+            << w << " lbs apres avoir broute." << endl;
 
     faune1::Humain henri(200);
 
@@ -22,14 +22,14 @@ int main()
     henri.mange(c);
 
     // la ligne suivante cause une erreur de compilation
-    // "appel à getWeight() est ambigue"
-    // float x = henri.getWeight();
+    // "appel a  getPoids() est ambigue"
+    // float x = henri.getPoids();
 
     float x2 = henri.Herbivore::getPoids();
-    cout << "Henri Herbivore pèse maintenant "
+    cout << "Henri Herbivore pese maintenant "
             << x2 << " lbs." << endl;
     float x3 = henri.Carnivore::getPoids();
-    cout << "henri Carnivore pèse maintenant "
+    cout << "henri Carnivore pese maintenant "
             << x3 << " lbs." << endl << endl;
 
     // avec les classes dans animalVirtual.h
@@ -37,36 +37,36 @@ int main()
     c2.broute();
 
     float wC2 = c.getPoids();
-    cout << "La poule pèse "
-            << wC2 << " lbs après avoir brouté." << endl;
+    cout << "La poule pese "
+            << wC2 << " lbs apres avoir broute." << endl;
 
     faune2::Humain remi(200);
 
-    cout << "Rémi mange une salade et la poule." << endl;
+    cout << "Remi mange une salade et la poule." << endl;
     remi.broute();
     remi.mange(c2);
 
     float xR1 = remi.getPoids();
-    cout << "Rémi Humain pèse maintenant "
+    cout << "Remi Humain pese maintenant "
             << xR1 << " lbs." << endl;
     float xR2 = remi.Herbivore::getPoids();
-    cout << "Rémi Herbivore pèse maintenant "
+    cout << "Remi Herbivore pese maintenant "
             << xR2 << " lbs." << endl;
     float xR3 = remi.Carnivore::getPoids();
-    cout << "Rémi Carnivore pèse maintenant "
+    cout << "Remi Carnivore pese maintenant "
             << xR3 << " lbs." << endl;
 
-    /*----------------- résultat ----------------------*\
-    La poule pèse 2.1 lbs après avoir brouté.
+    /*----------------- resultat ----------------------*\
+    La poule pese 2.1 lbs apres avoir broute.
     Henri mange une salade et la poule.
-    Henri Herbivore pèse maintenant 200.1 lbs.
-    henri Carnivore pèse maintenant 200.21 lbs.
+    Henri Herbivore pese maintenant 200.1 lbs.
+    henri Carnivore pese maintenant 200.21 lbs.
 
-    La poule pèse 2.1 lbs après avoir brouté.
-    Rémi mange une salade et la poule.
-    Rémi Humain pèse maintenant 200.31 lbs.
-    Rémi Herbivore pèse maintenant 200.31 lbs.
-    Rémi Carnivore pèse maintenant 200.31 lbs.
+    La poule pese 2.1 lbs apres avoir broute.
+    Remi mange une salade et la poule.
+    Remi Humain pese maintenant 200.31 lbs.
+    Remi Herbivore pese maintenant 200.31 lbs.
+    Remi Carnivore pese maintenant 200.31 lbs.
     \*-------------------------------------------------*/
 
 }

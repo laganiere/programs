@@ -21,7 +21,7 @@ Boite fct2() {
 
 int main()
 {
-        cout << "DÃ©but" << endl;
+        cout << "Debut" << endl;
 
         Boite b(5);
 
@@ -29,18 +29,18 @@ int main()
         b.add(new Forme());
         b.add(new Forme());
 
-        cout << "CrÃ©ation de c" << endl;
+        cout << "Creation de c" << endl;
 
         Boite c=b;
 
-        cout << "Appel Ã  fct1" << endl;
+        cout << "Appel a fct1" << endl;
         fct1(c);
 
-        cout << "Appel Ã  fct2" << endl;
+        cout << "Appel a fct2" << endl;
 
         Boite e(fct2());
 
-        cout << "Appel Ã  fct2" << endl;
+        cout << "Appel a fct2" << endl;
 
         e= fct2();
 
@@ -49,20 +49,20 @@ int main()
 
         return 0;
 
-        /*--------------- rÃ©sultat ------------------------*\
-         DÃ©but
+        /*--------------- resultat ------------------------*\
+         Debut
          constructeur - int
-         CrÃ©ation de c
+         Creation de c
          constructeur - copieur
-         Appel Ã  fct1
+         Appel a fct1
          constructeur - copieur
          Dans fct1
-         Appel Ã  fct2
+         Appel a fct2
          Dans fct2
          constructeur - int
          Fin de fct2
          constructeur - copieur
-         Appel Ã  fct2
+         Appel a fct2
          Dans fct2
          constructeur - int
          Fin de fct2

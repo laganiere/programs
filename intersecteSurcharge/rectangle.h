@@ -55,18 +55,18 @@ public:
         this->largeur = largeur;
     }
 
-    string toString() { // redéfinition
+    string toString() const { // redefinition
         stringstream ss;
         ss << "Rectangle (" << hauteur << "x" << largeur << ")";
         return ss.str() + Forme::toString();
     }
-    bool intersecte(Forme& s1) {
+    bool intersecte(const Forme& s1) const {
             return s1.intersecte(*this); }
-    bool intersecte(Triangle& s1) {
+    bool intersecte(const Triangle& s1) const {
             return triangleRectangle(s1,*this);}
-    bool intersecte(Rectangle& s1) {
+    bool intersecte(const Rectangle& s1) const {
             return rectangleRectangle(*this, s1);}
-    bool intersecte(Carre& s1) {
+    bool intersecte(const Carre& s1) const {
             return rectangleCarre(*this, s1);}
 };
 

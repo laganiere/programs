@@ -19,20 +19,20 @@ class Carre: public Rectangle {
             return 4*Rectangle::getLargeur();
         }
 
-        string toString() {
+        string toString() const {
             std::stringstream ss;
             ss << "Carre (" << Rectangle::getLargeur() << "x"
                     << Rectangle::getLargeur() << ")";
             return ss.str() + Forme::toString();
         }
 
-        bool intersecte(Forme& s1) {
+        bool intersecte(const Forme& s1) const {
             return s1.intersecte(*this); }
-        bool intersecte(Triangle& s1) {
+        bool intersecte(const Triangle& s1) const {
             return triangleCarre(s1,*this);}
-        bool intersecte(Rectangle& s1) {
+        bool intersecte(const Rectangle& s1) const {
             return rectangleCarre(s1,*this);}
-        bool intersecte(Carre& s1) {
+        bool intersecte(const Carre& s1) const {
             return carreCarre(*this, s1);}
 };
 

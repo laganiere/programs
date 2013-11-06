@@ -8,11 +8,15 @@
 
 using namespace std;
 
-bool intersecte(Forme& s1, Forme& s2) {
+// ici, pour simplification, nous verifions seulement si les
+// limites de chaque forme s'intersectent. Une vraie implementation
+// tiendrait compte de la nature de chaque forme.
+
+bool intersecte(const Forme& s1, const Forme& s2) {
     return (s1.getAncrage()).egale(s2.getAncrage()) ? true : false;
 }
 
-bool triangleTriangle(Triangle& s1, Triangle& s2) {
+bool triangleTriangle(const Triangle& s1, const Triangle& s2) {
     Point2D s1a, s1b;
     Point2D s2a, s2b;
     s1.getLimites(s1a, s1b);
@@ -31,7 +35,7 @@ bool triangleTriangle(Triangle& s1, Triangle& s2) {
     return true;
 }
 
-bool triangleRectangle(Triangle& s1, Rectangle& s2) {
+bool triangleRectangle(const Triangle& s1, const Rectangle& s2) {
     Point2D s1a, s1b;
     Point2D s2a, s2b;
     s1.getLimites(s1a, s1b);
@@ -50,7 +54,7 @@ bool triangleRectangle(Triangle& s1, Rectangle& s2) {
     return true;
 }
 
-bool triangleCarre(Triangle& s1, Carre& s2) {
+bool triangleCarre(const Triangle& s1, const Carre& s2) {
     Point2D s1a, s1b;
     Point2D s2a, s2b;
     s1.getLimites(s1a, s1b);
@@ -69,7 +73,7 @@ bool triangleCarre(Triangle& s1, Carre& s2) {
     return true;
 }
 
-bool rectangleRectangle(Rectangle& s1, Rectangle& s2) {
+bool rectangleRectangle(const Rectangle& s1, const Rectangle& s2) {
     Point2D s1a, s1b;
     Point2D s2a, s2b;
     s1.getLimites(s1a, s1b);
@@ -88,7 +92,7 @@ bool rectangleRectangle(Rectangle& s1, Rectangle& s2) {
     return true;
 }
 
-bool rectangleCarre(Rectangle& s1, Carre& s2) {
+bool rectangleCarre(const Rectangle& s1, const Carre& s2) {
     Point2D s1a, s1b;
     Point2D s2a, s2b;
     s1.getLimites(s1a, s1b);
@@ -107,7 +111,7 @@ bool rectangleCarre(Rectangle& s1, Carre& s2) {
     return true;
 }
 
-bool carreCarre(Carre& s1, Carre& s2) {
+bool carreCarre(const Carre& s1, const Carre& s2) {
     Point2D s1a, s1b;
     Point2D s2a, s2b;
     s1.getLimites(s1a, s1b);

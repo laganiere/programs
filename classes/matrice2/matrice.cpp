@@ -1,8 +1,18 @@
 
 #include "matrice.h"
 
-Matrice::Matrice() { m[0][0] = 0;}
-Matrice::Matrice(int i) { m[0][0] = i; }
+Matrice::Matrice() { 
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            m[i][j] =  0;
+        }
+}
+Matrice::Matrice(int x) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            m[i][j] = x;
+        }
+}
 
 Matrice::Matrice(const Matrice &m2) {
     for (int i = 0; i < 3; i++) {

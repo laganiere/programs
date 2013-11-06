@@ -57,12 +57,12 @@ public:
     virtual double getPerimetre() const = 0;
     virtual double getAire() const = 0;
 
-    virtual bool intersecte(Forme& s1) =0;
-    virtual bool intersecte(Triangle& s1) =0;
-    virtual bool intersecte(Rectangle& s1) =0;
-    virtual bool intersecte(Carre& s1) =0;
+    virtual bool intersecte(const Forme& s1) const =0;
+    virtual bool intersecte(const Triangle& s1) const =0;
+    virtual bool intersecte(const Rectangle& s1) const =0;
+    virtual bool intersecte(const Carre& s1) const =0;
 
-    string toString() {
+    string toString() const {
         std:: stringstream ss;
         ss << " Ancrée au point (" << ancrage.getX()
                 << ", " << ancrage.getY() << ")";

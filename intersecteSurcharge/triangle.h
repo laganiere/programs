@@ -68,19 +68,19 @@ private:
             p2.setY(getHauteur());
         }
 
-        std::string toString() { // redéfinition
+        std::string toString() const { // redefinition
             stringstream ss;
             ss << "Triangle (" << getHauteur() << "x" << getBase() << ")";
             return ss.str() + Forme::toString();
         }
 
-        bool intersecte(Forme& s1) {
+        bool intersecte(const Forme& s1) const {
                 return s1.intersecte(*this); }
-        bool intersecte(Triangle& s1) {
+        bool intersecte(const Triangle& s1) const {
                 return triangleTriangle(*this, s1);}
-        bool intersecte(Rectangle& s1) {
+        bool intersecte(const Rectangle& s1) const {
                 return triangleRectangle(*this, s1);}
-        bool intersecte(Carre& s1) {
+        bool intersecte(const Carre& s1) const {
                 return triangleCarre(*this, s1);}
 
 };

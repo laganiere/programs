@@ -1,13 +1,13 @@
 
-#ifndef TRIANGLE_H // si TRIANGLE_H n'est pas défini
-#define TRIANGLE_H // définir TRIANGLE_H
+#ifndef TRIANGLE_H // si TRIANGLE_H n'est pas defini
+#define TRIANGLE_H // definir TRIANGLE_H
 
 #include "forme.h"
 #include <math.h>
 
 
 class Triangle : public Forme{
-private: // privé par défaut, il n'est pas nécessaire de l'indiquer
+private: // prive par defaut
     double base, cote1, cote2;
 
 public:
@@ -16,21 +16,21 @@ public:
                 Forme(x, y), base(base), cote1(cote1),
                 cote2(cote2) {  }
 
-    // Il n'est pas nécessaire de définir Forme() puisque
-    // le constructeur par défaut de Forme aurait été
-    // implicitement appelé
+    // Il n'est pas necessaire de d'appeler Forme() puisque
+    // le constructeur par défaut de Forme aurait ete
+    // implicitement appele
     Triangle(double base, double cote1, double cote2) :
                 Forme(), base(base), cote1(cote1), cote2(cote2) { }
 
-    // Le constructeur copieur par défaut aurait fait la même
+    // Le constructeur copieur par défaut aurait fait la meme
     // chose
     Triangle(const Triangle &t) {
         setAncrage(t.getAncrage());
         base = t.base, cote1 = t.cote1, cote2 = t.cote2;
     }
 
-    // le const qui figure dans les méthodes get suivantes
-    // préviennent la modification des attributs par la méthode.
+    // le const qui figure dans les methodes get suivantes
+    // previent la modification des attributs par la methode.
     double getBase() const {
         return base;
     }

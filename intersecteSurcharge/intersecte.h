@@ -6,12 +6,12 @@ class Forme;
 class Rectangle;
 class Triangle;
 class Carre;
-bool intersecte(Forme& s1, Forme& s2);
-bool triangleTriangle(Triangle& s1, Triangle& s2);
-bool triangleRectangle(Triangle& s1, Rectangle& s2);
-bool triangleCarre(Triangle& s1, Carre& s2);
-bool rectangleRectangle(Rectangle& s1, Rectangle& s2);
-bool rectangleCarre(Rectangle& s1, Carre& s2);
-bool carreCarre(Carre& s1, Carre& s2);
+bool intersecte(const Forme& s1, const Forme& s2);
+bool triangleTriangle(const Triangle& s1, const Triangle& s2);
+bool triangleRectangle(const Triangle& s1, const Rectangle& s2);
+bool triangleCarre(const Triangle& s1, const Carre& s2);
+bool rectangleRectangle(const Rectangle& s1, const Rectangle& s2);
+bool rectangleCarre(const Rectangle& s1, const Carre& s2);
+bool carreCarre(const Carre& s1, const Carre& s2);
 
 #endif
