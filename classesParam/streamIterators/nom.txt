@@ -1,4 +1,1 @@
-Something 
-is 
-written 
-here.
+voici un fichier contenant une liste de mots

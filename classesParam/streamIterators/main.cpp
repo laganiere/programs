@@ -14,20 +14,20 @@ int main()
     ifstream is("nom.txt");
     ofstream os("nom2.txt");
     istream_iterator<string> ii(is);
+    // construit un end-of-stream iterator
     istream_iterator<string> eof;
 
-    // "\n" est la chaine de caractère à la fin de
-    // chaque string
-    ostream_iterator<string>oo(os, "\n");
+    // le 2ieme argument est le delimitateur
+    // insere a la fin de chaque element
+    ostream_iterator<string>oo(os, ";\n");
 
     list<string> liste(ii, eof);
     liste.sort();
-    // tous les mots sont triés en ordre alphabétique
+    // tous les mots sont tries en ordre alphabetique
 
     std::copy(liste.begin(), liste.end(), oo);
 
-    cout << liste.size() << " mots ont été copiés." << endl;
-    // copie un intervalle à partir de la position
-    // spécifiée par un itérateur
-
+    cout << liste.size() << " mots ont ete copies." << endl;
+    // copie un intervalle a partir de la position
+    // specifiee par un iterateur
 }
