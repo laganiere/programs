@@ -1,5 +1,7 @@
 #include <iostream>
 #include <set>
+#include <utility>
+#include <tuple>
 #include "employee.h"
 
 using namespace std;
@@ -56,16 +58,17 @@ int main()
 }
 
 /*--------------------- resultat -------------------------*\
-  Le set contient les employées suivants :
-    Stéphane Lacroix
-    Joel Lamirand
-    Joe Tremblay
-    Réal Tremblay
+Le set contient les employes suivants :
+Stephane Lacroix
+Joel Lamirand
+Joe Tremblay
+Real Tremblay
 
-  Le set contient maintenant les employées suivants :
-    Miguel Bonneau
-    Stéphane Lacroix
-    Joel Lamirand
-    Réal Tremblay
- \*--------------------------------------------------------*/
+Le set contient maintenant les employes suivants :
+X Bouchard
+Stephane Lacroix
+Joel Lamirand
+Joel Tremblay
+Real Tremblay
+\*--------------------------------------------------------*/
 
