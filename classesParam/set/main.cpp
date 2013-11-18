@@ -1,10 +1,10 @@
 #include <iostream>
 #include <set>
-#include <utility>
-#include <tuple>
+#include <stdarg.h>
 #include "employee.h"
 
 using namespace std;
+
 
 bool operator<(Employee a, Employee b) {
     if (a.getNom().compare(b.getNom()) == 0)
@@ -72,3 +72,15 @@ Joel Tremblay
 Real Tremblay
 \*--------------------------------------------------------*/
 
+
+double average(int count, ...)
+{
+    va_list ap;
+    int j;
+    double tot = 0;
+    va_start(ap, count); //Requires the last fixed parameter (to get the address)
+    for(j=0; j<count; j++)
+        tot+=va_arg(ap, double); //Requires the type to cast to. Increments ap to the next argument.
+    va_end(ap);
+    return tot/count;
+}
