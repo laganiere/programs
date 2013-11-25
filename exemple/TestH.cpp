@@ -1,6 +1,7 @@
 
 #include "Horloge5.h"
-#include "auto_ptr.h"
+#include <memory>
+#include <vector>
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
@@ -27,36 +28,36 @@ void fonction2(){
 }
 
 void fonction3(){
-    // Transférer la propriété d'un auto_ptr ‡ un autre
+    // Transferer la propriete d'un auto_ptr ‡ un autre
     auto_ptr<Horloge> pt1( new Horloge);
     auto_ptr<Horloge> pt2;
 
-    //pt1->DoSomething(); // OK
+    int i;
+    i= pt1->hr(); // OK
 
-    pt2 = pt1;  // maintenant le pointeur appartient à pt2
-                // et non plus à pt1
+    pt2 = pt1;  // maintenant le pointeur appartient a pt2
+                // et non plus a pt1
 
-    //pt2->DoSomething(); // OK
+    i= pt2->hr(); // OK
+    i= pt1->hr(); // nouvel version de auto_ptr... illegal?
 
     // Utilisation de reset()
     auto_ptr<Horloge> pt3( new Horloge(1) );
     pt3.reset( new Horloge(2) );
-    // Supprime la première Horloge qui était allouée
+    // Supprime la premieère Horloge qui etait allouee
     // avec "new Horloge(1)"
 
-} // quand on sort de la portée, le destructeur de pt2 supprime
-  // le pointeur, mais pt1 ne change pas pt3 sort de la portÈe
-  // et la deuxième Horloge est aussi supprimÈe
+} // quand on sort de la portee, le destructeur de pt2 supprime
+  // le pointeur, mais pt1 ne change pas pt3 sort de la portee
+  // et la deuxeième Horloge est aussi supprimÈe
 
+int main() {
 
-
-    int main() {
-
-    cout << "testH() commence ici" << endl;
+    cout << "main() commence ici" << endl;
 
     cout << "appel de fonction1()" << endl;
     auto_ptr<Horloge> ptr1= fonction1();
-    cout << "retour à testG()" << endl;
+    cout << "retour a main()" << endl;
 
     cout << "a) " << *ptr1 << endl;
 
@@ -67,31 +68,49 @@ void fonction3(){
     Horloge* ptr2 = ptr1.release();
     delete ptr2;
 
-    cout << "fin de testG()" << endl;
+    cout << "fin de main()" << endl;
 
-    system("PAUSE");
+    unique_ptr<Horloge> upt1(new Horloge(3600));
+
+//  erreur! plus de constructeur copieur
+//  unique_ptr<Horloge> upt2(upt1);
+
+    if (!upt1)
+        cout << "oui" << endl;
+    else
+        cout << "non" << endl;
+
+    //seule la 'move semantic' est permise
+    vector<unique_ptr<Horloge>> horloges;
+    horloges.push_back(move(upt1));
+
+    if (!upt1)
+        cout << "oui" << endl;
+    else
+        cout << "non" << endl;
+
     return 0;
-
-//    auto_ptr<Horloge> pt2( pt1 ); -> illégal
-//    auto_ptr<Horloge> pt3;
-//    pt3 = pt1;                    -> illégal
-//    pt1.release();                -> illégal
-//    pt1.reset( new Horloge );     -> illégal
-
 }
 
-    /*--------------- résultat ---------------*\
-
-    testH() commence ici
-    appelle de fonction1()
-    fonction1() commence ici
-    -> constructeur de 0jour 4hrs 55min 23sec
-    fin de fonction1()
-    retour à testG()
-    a) 0jour 4hrs 55min 23sec
-    fin de testH()
-    -> destructeur de 0jour 4hrs 55min 23sec
-
-    \*--------------------------------------*/
+/*--------------- resultat ---------------*\
+main() commence ici
+appel de fonction1()
+fonction1() commence ici
+-> constructeur de 0jour 4hrs 55mins 23sec
+fin de fonction1()
+retour a main()
+a) 0jour 4hrs 55mins 23sec
+-> constructeur copieur avec 0jour 4hrs 55mins 23sec
+-> constructeur copieur avec 0jour 4hrs 55mins 23sec
+-> destructeur de 0jour 4hrs 55mins 23sec
+-> destructeur de 0jour 4hrs 55mins 23sec
+b) 0jour 4hrs 55mins 24sec
+-> destructeur de 0jour 4hrs 55mins 24sec
+fin de main()
+-> constructeur de 0jour 1hr 0min 0sec
+non
+oui
+-> destructeur de 0jour 1hr 0min 0sec
+\*--------------------------------------*/
 
 

@@ -1,4 +1,3 @@
-
 #include "Horloge5.h"
 #include "PointeurIntelligent.h"
 #include <iostream>
@@ -12,66 +11,90 @@ fonction() {
 
     PointeurIntelligent<Horloge> p ;
 
-    p= new Horloge(17723);
+    p= new Horloge(3601);
 
     cout << "fin de fonction()" << endl;
 
     return p;
 }
 
-    //Source et drain
+    // Source
     PointeurIntelligent<Horloge> Source(){
-        static long temps = 1000;
+        static long temps = 60;
         return PointeurIntelligent<Horloge>(
                                     new Horloge(temps++));
     }
 
+    // Drain
     void Drain(PointeurIntelligent<Horloge> h){
-        cout << "drain de : " << h << endl;
+        cout << "drain de : " << *h << endl;
     }
 
-    int main() {
-
-    cout << "testG() commence ici" << endl;
+int main() {
 
     cout << "appel de fonction()" << endl;
+
     PointeurIntelligent<Horloge> ptr1= fonction();
-    cout << "retour ˆ testG()" << endl;
+    cout << "retour a main()" << endl;
 
-    cout << "a) " << *ptr1 << endl;
-
-//    (*ptr1)++;
-
-//    cout << "b) " << *ptr1 << endl;
+    cout << "a) " << ++(*ptr1) << endl;
 
     cout << "source et drain" << endl;
 
     PointeurIntelligent<Horloge> ptr2 = Source();
 
     PointeurIntelligent<Horloge> ptr3 = Source();
-    *ptr2 = *ptr3;
-    system("PAUSE");
-    return 0;
-    Drain(ptr3);
-    cout << *ptr2 << endl;
 
-    cout << "fin de testG()" << endl;
+    // ptr3 perd la propriete de son objet
+    cout << "affectation" << endl;
+    ptr2 = ptr3;
 
-    system("PAUSE");
+    cout << "b)" << *ptr2 << endl;
+    cout << "c)" << *ptr3 << endl;
+
+    cout << "appel a la fonction Drain()" << endl;
+    Drain(ptr2);
+    // l'objet de ptr2 a ete detruit!
+
+    // Pour cette raison, il ne faut pas utiliser ces pointeurs
+    // dans la STL...
+    // Par exemple le tri d'un vector de pointeurs pourrait
+    // drainer des objets (par exemple, les pivots)
+
+    cout << "fin de main()" << endl;
+
     return 0;
 }
 
-/*--------------- rŽsultat ---------------*\
-
-testG() commence ici
-appelle de fonction()
+/*--------------- resultat ---------------*\
+appel de fonction()
 fonction() commence ici
--> constructeur de 0jour 4hrs 55min 23sec
+PointeurIntelligent::constructeur-ptr
+-> constructeur de 0jour 1hr 0min 1sec
+op=(T*): prise de possession
 fin de fonction()
-retour ˆ testG()
-a) 0jour 4hrs 55min 23sec
-fin de testG()
--> destructeur de 0jour 4hrs 55min 23sec
+PointeurIntelligent::constructeur-copieur(): changement de proprio
+PointeurIntelligent::destructeur:
+retour a main()
+a) 0jour 1hr 0min 2sec
+source et drain
+-> constructeur de 0jour 0hr 1min 0sec
+PointeurIntelligent::constructeur-ptr
+-> constructeur de 0jour 0hr 1min 1sec
+PointeurIntelligent::constructeur-ptr
+affectation
+-> destructeur de 0jour 0hr 1min 0sec
+op=(): changement de proprio
+b)0jour 0hr 1min 1sec
+c)0jour 0hr 1min 1sec
+appel a la fonction Drain()
+PointeurIntelligent::constructeur-copieur(): changement de proprio
+drain de : 0jour 0hr 1min 1sec
+PointeurIntelligent::destructeur: -> destructeur de 0jour 0hr 1min 1sec
 
+fin de main()
+PointeurIntelligent::destructeur:
+PointeurIntelligent::destructeur:
+PointeurIntelligent::destructeur: -> destructeur de 0jour 1hr 0min 2sec
 \*--------------------------------------*/
 
