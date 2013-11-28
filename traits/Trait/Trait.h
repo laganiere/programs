@@ -8,20 +8,17 @@
 #include "Pile.h"
 using namespace std;
 
-template <class T>
-        struct est_pointeur{
+template <typename T>
+struct est_pointeur{
     static const bool valeur=false;
 };
 
-template<class T>
+// specialisation
+template<>
 struct est_pointeur<T*>{
     static const bool valeur = true;
 };
 
-template<class T*>
-ostream operator<<(ostream &out, const Pile<T*> &p){
-    return out << p.dessus();
-};
 
 template<typename T>
 struct trait_reel{
@@ -42,10 +39,12 @@ struct trait_reel<double>{
 
 template<typename T>
 ostream operator<<(ostream &out, const Pile<T> &p){
-            if(trait_reel<T>::est_reel)
-                out  << static_cast<int>(p.dessus() + 0.5);
-            else
-                out <<p.dessus();
+    if(trait_reel<T>::est_reel)
+        out  << static_cast<int>(p.dessus() + 0.5);
+    if(est_pointeur<T>::valeur)
+        out  << *(p.dessus());
+    else
+        out << p.dessus();
 };
 
 template<typename T>
