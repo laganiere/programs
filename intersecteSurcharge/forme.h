@@ -64,7 +64,7 @@ public:
 
     string toString() const {
         std:: stringstream ss;
-        ss << " Ancrée au point (" << ancrage.getX()
+        ss << " au point (" << ancrage.getX()
                 << ", " << ancrage.getY() << ")";
         return ss.str();
     }

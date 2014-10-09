@@ -33,7 +33,7 @@ private:
                     Forme(), base(base), cote1(cote1), cote2(cote2),
                     aire(0), calculee(false) { }
 
-        Triangle(const Triangle &t) {
+        Triangle(const Triangle &t): Forme() {
             setAncrage(t.getAncrage());
             base = t.base, cote1 = t.cote1, cote2 = t.cote2,
             aire = t.aire, calculee = t.calculee;

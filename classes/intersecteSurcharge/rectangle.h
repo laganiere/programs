@@ -20,7 +20,7 @@ public:
     Rectangle(double largeur, double hauteur):
             Forme(), largeur(largeur), hauteur(hauteur) { }
 
-    Rectangle(const Rectangle &r) {
+    Rectangle(const Rectangle &r) : Forme() {
         setAncrage(r.getAncrage());
         largeur = r.largeur, hauteur = r.hauteur;
     }
