@@ -47,7 +47,7 @@ public:
         this->largeur = largeur;
     }
 
-    string toString() { // redéfinition
+    string toString() const { // redéfinition
         std::stringstream ss;
         ss << "Rectangle (" << hauteur << "x" << largeur << ")";
         return ss.str() + Forme::toString();

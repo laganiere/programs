@@ -42,31 +42,37 @@ int main()
 
         cout << "Appel a fct2" << endl;
 
-        e= fct2();
+        e= fct2(); // Attention! Erreur ici!
+
+        cout << "Appel a vide" << endl;
 
         e.vide();
         b.vide();
 
         return 0;
 
-        /*--------------- resultat ------------------------*\
-         Debut
-         constructeur - int
-         Creation de c
-         constructeur - copieur
-         Appel a fct1
-         constructeur - copieur
-         Dans fct1
-         Appel a fct2
-         Dans fct2
-         constructeur - int
-         Fin de fct2
-         constructeur - copieur
-         Appel a fct2
-         Dans fct2
-         constructeur - int
-         Fin de fct2
-         constructeur - copieur
+/*--------------- resultat ------------------------*\
+Debut
+constructeur - int
+Creation de c
+constructeur - copieur
+Appel a fct1
+constructeur - copieur
+Dans fct1
+destructeur
+Appel a fct2
+Dans fct2
+constructeur - int
+Fin de fct2
+Appel a fct2
+Dans fct2
+constructeur - int
+Fin de fct2
+destructeur
+Appel a vide
+destructeur
+destructeur
+destructeur
 
-        \*-------------------------------------------------*/
+\*-------------------------------------------------*/
 }

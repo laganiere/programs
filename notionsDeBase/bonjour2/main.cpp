@@ -10,4 +10,6 @@ int main()
    cout << "Entrez votre nom: ";
    cin.getline(name, 100);
    cout << "Bonjour " << name << "!" << endl;
+
+   return 0;
 }

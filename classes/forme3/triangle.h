@@ -8,7 +8,7 @@ private:
 
     double base, cote1, cote2;
     // cette variable peut etre changee lors d'un appel
-    // a  une methode const
+    // a une methode const
     mutable double area;
 
     // en prenant pour acquis qu'aucun triangle n'a un angle > 90
@@ -21,7 +21,7 @@ private:
 public:
     static int getNumberOfTriangles() {return numberOfTriangles; }
 
-    Triangle(double a, double b, double c) : a(a), b(b), c(c),
+    Triangle(double a, double b, double c) : base(a), cote1(b), cote2(c),
                     area(NOT_COMPUTED) { numberOfTriangles++; }
 
     // le const qui figure dans les methodes suivantes

@@ -14,8 +14,8 @@ public:
 
 class Boite {
 
-        int nels;
         int dim;
+        int nels;
         Forme **formes;
 
 public:
@@ -67,6 +67,8 @@ public:
 
         ~Boite() {
 
+
+                cout << "destructeur" << endl;
                 delete[] formes;
         }
 };

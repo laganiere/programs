@@ -1,8 +1,8 @@
 
 #include <iostream>
 
-// nécessaire pour obtenir les définitions associée
-// à string
+// necessaire pour obtenir les definitions associee
+// a string
 #include <string>
 
 using std::string;
@@ -26,17 +26,18 @@ int main() {
             << ", s2=" << s2
             << std::endl;
 
-    for (string::size_type i; i < s.size(); i++) {
-        toupper(s[i]);
+    for (string::size_type i=0; i < s.size(); i++) {
+        s[i]= toupper(s[i]);
     }
 
     std::cout << "s=" << s << std::endl;
 
-    /*--------------- résultat ------------------------*\
+    /*--------------- resultat ------------------------*\
       s=bonjour, s2=bonjour, s4=cccc
       s2=bonjourbonjour
       a=, b=, s=bo2jour, s2=bonjourbonjour
-      s=bo2jour
+      s=BO2JOUR
     \*-------------------------------------------------*/
 
+	std::system("pause");
 }

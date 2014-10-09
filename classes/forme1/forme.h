@@ -46,7 +46,7 @@ public:
         return 0;
     }
 
-    string toString() {
+    string toString() const {
         std:: stringstream ss;
         ss << " Ancrée au point (" << ancrage.getX()
                 << ", " << ancrage.getY() << ")";

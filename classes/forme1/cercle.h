@@ -39,7 +39,7 @@ public:
         this->rayon = rayon;
     }
 
-    string toString() { // redéfinition
+    string toString() const { // redéfinition
         std::stringstream ss;
         ss << "Cercle (" << rayon << ")";
         return ss.str() + Forme::toString();
