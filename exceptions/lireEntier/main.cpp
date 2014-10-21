@@ -1,13 +1,44 @@
 
-#include "lireEntier.h"
+#include <string>
+#include <iostream>
+#include "monException.h"
+
+using namespace std;
+
+int lireEntierPositif() throw (MonException, int) { 
+
+    cout << "Entrer un nombre : ";
+    cin >> nombre;
+
+    if (cin.fail()) {
+        MonException erreur("Nombre invalide");
+        throw erreur;
+	}
+
+    if (nombre < 0)
+        throw -1;
+
+    return nombre;
+}
 
 int main()
 {
-    int z;
-
     try {
-        z = LireEntier();
-        cout << "L'entier est " << z << endl;
-    } catch (string s) {cout << "Erreur " << s << endl; }
-    catch (...) { cout << "Autre erreur" << endl;}
+
+      int nombre; 	
+      nombre = lireEntierPositif();
+
+      cout << nombre +1;
+	  
+    }
+    catch(MonException w ) { w.report(); }
+    catch(int e) {
+        std::cout <<
+                "L'exception attrapée est un entier." << std::endl;
+        throw(e); // relance l'exception au niveau plus haut
+    }
+    catch(...) { // attrape n'importe quoi
+        cout << "Exécution du programme interrompue" << endl;
+        exit(0);
+    }
 }

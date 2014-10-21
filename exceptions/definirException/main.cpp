@@ -5,26 +5,31 @@
 
 using namespace std;
 
+int lireEntierPositif() { 
+
+    cout << "Entrer un nombre : ";
+    cin >> nombre;
+
+    if (cin.fail()) {
+        MonException erreur("Nombre invalide");
+        throw erreur;
+	}
+
+    if (nombre < 0)
+        throw -1;
+
+    return nombre;
+}
+
 int main()
 {
-
-
     try {
-        int i;
-        std::cout
-            << "Entrez un nombre entre 0 et 10 : " << std::endl;
-        std::cin >> i;
 
-        if (i > 10) {
-            MonException testing("Nombre invalide");
-            throw(testing);
-        }
-        else if (i < 0) {
-            throw(3);
-        }
-        else {
-            cout << "Vous avez entré " << i << endl;
-        }
+      int nombre; 	
+      nombre = lireEntierPositif();
+
+      cout << nombre +1;
+	  
     }
     catch(MonException w ) { w.report(); }
     catch(int e) {
@@ -34,6 +39,6 @@ int main()
     }
     catch(...) { // attrape n'importe quoi
         cout << "Exécution du programme interrompue" << endl;
-        exit(4);
+        exit(0);
     }
 }

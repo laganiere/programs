@@ -7,9 +7,7 @@ static const int INVALID_NUMBER = 1;
 static const int NEGATIVE_NUMBER = -1;
 static const int SUCCESS = 0;
 
-int lireEntierPositif() { // retourne le code d'erreur
-
-    int nombre;
+int lireEntierPositif(int& nombre) { // retourne le code d'erreur
 
     cout << "Entrer un nombre : ";
     cin >> nombre;
@@ -23,11 +21,14 @@ int lireEntierPositif() { // retourne le code d'erreur
 }
 
 int main() {
-    int erreur = lireEntierPositif();
+
+    int nombre; 
+	
+    int erreur = lireEntierPositif(nombre);
 
     if (erreur == SUCCESS) {
         // flot normal d'exécution
-        cout << "Aucune erreur." << endl;
+        cout << nombre+1 << endl;
     }
     else if (erreur == NEGATIVE_NUMBER) {
         // traitement d'une exception
