@@ -11,6 +11,9 @@ int main()
     string s;
     float x;
 
+    // output string stream
+    // tres pratique pour convertir des types numeriques
+    // en chaines de caracteres
     ostringstream convertisseur;
 
     x = 3.14;
@@ -20,8 +23,11 @@ int main()
 
     cout << "s = " << s << endl;
 
+    // par defaut les strinstream sont en entree ou en sortie
+    // mais on peut en faire la declaration explicite (in et/ou out)
     stringstream strm(stringstream::out | stringstream::in);
 
+    // en entree
     strm << "120 44 z";
     int val;
 

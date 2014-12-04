@@ -18,9 +18,11 @@ class PointeurIntelligent {
         }
 
         PointeurIntelligent(const PointeurIntelligent& p) :
-                ptr(p.ptr), proprietaire(true) {
-                p.proprietaire= false;
-                cout << "PointeurIntelligent::constructeur-copieur(): changement de proprio" << endl;
+            ptr(p.ptr), proprietaire(true) {
+            p.proprietaire= false;
+            cout << 
+  "PointeurIntelligent::constructeur-copieur(): changement de proprio" 
+			 << endl;
 
          }
 

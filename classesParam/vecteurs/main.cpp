@@ -18,7 +18,7 @@ int main()
     cout <<  "grandeur du vecteur : " << v.size() << ", "
             << "capacité du vecteur : " << v.capacity() << endl;
     v.push_back(30);
-    v[100] = 10;
+    v[100] = 10;  // comportement non defini (hors limite)
     cout << v[100] << endl;
     cout <<  "grandeur du vecteur : " << v.size() << ", "
             << "capacité du vecteur : " << v.capacity() << endl;

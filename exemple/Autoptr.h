@@ -15,6 +15,7 @@ class auto_ptr {
         auto_ptr(T* p=0) : ptr(p), proprietaire(true) { }
         auto_ptr(auto_ptr& p) : ptr(p.ptr), proprietaire(true) {
                 p.proprietaire= false;
+                p.ptr= 0; // dans les versions plus recentes de auto_ptr
          }
         ~auto_ptr() { if (proprietaire) delete ptr; }
 
@@ -38,6 +39,7 @@ operator=(auto_ptr<T> &p) {
         ptr= p.ptr;
         proprietaire= true;
         p.proprietaire= false;
+        p.ptr= 0; // dans les versions plus recentes de auto_ptr
     }
 
     return *this;

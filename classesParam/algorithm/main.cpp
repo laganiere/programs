@@ -54,7 +54,7 @@ int main()
        cout << " " << *it2;
    cout << endl;
 
-   cout << "Les valeurs suivantes sont des multiples de 3 : ";
+   cout << "Voici les valeurs apres partition : ";
    it = partition(v.begin(), v.end(), multiple3);
    cout << v << endl;
 }
@@ -65,14 +65,15 @@ La plus petite valeur est 2
 La plus grande valeur est 12
 Les valeurs suivantes sont impaires :  7 3 11 5
 Les valeurs suivantes sont paires :  6 2 12
-Les valeurs suivantes sont des multiples de 3 : 12 3 6 5 11 2 7
+Voici les valeurs apres partition : 12 3 6 5 11 2 7
 \*--------------------------------------------------------*/
 
 /* definition recommandee de la fonction std::partition *\
 
 template <class BidirectionalIterator, class UnaryPredicate>
   BidirectionalIterator partition (BidirectionalIterator first,
-                                   BidirectionalIterator last, UnaryPredicate pred)
+                                   BidirectionalIterator last, 
+                                   UnaryPredicate pred)
 {
   while (first!=last) {
     while (pred(*first)) {

@@ -28,7 +28,7 @@ void fonction2(){
 }
 
 void fonction3(){
-    // Transferer la propriete d'un auto_ptr ‡ un autre
+    // Transferer la propriete d'un auto_ptr a un autre
     auto_ptr<Horloge> pt1( new Horloge);
     auto_ptr<Horloge> pt2;
 
@@ -44,12 +44,12 @@ void fonction3(){
     // Utilisation de reset()
     auto_ptr<Horloge> pt3( new Horloge(1) );
     pt3.reset( new Horloge(2) );
-    // Supprime la premieère Horloge qui etait allouee
+    // Supprime la premiere Horloge qui etait allouee
     // avec "new Horloge(1)"
 
 } // quand on sort de la portee, le destructeur de pt2 supprime
   // le pointeur, mais pt1 ne change pas pt3 sort de la portee
-  // et la deuxeième Horloge est aussi supprimÈe
+  // et la deuxieme Horloge est aussi supprimee
 
 int main() {
 

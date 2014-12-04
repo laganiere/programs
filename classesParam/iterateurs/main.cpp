@@ -13,7 +13,7 @@ int main()
     it++; it++;
 
     // insère un élément devant la position courante
-    v.insert(it, 99);
+    it= v.insert(it, 99);
 
     // l'itérateur se trouve maintenant à la position
     // d'insertion du nouvel élément.
