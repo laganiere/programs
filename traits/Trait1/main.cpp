@@ -1,8 +1,13 @@
 
-#include "Trait1.h"
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
+
+template <typename T>
+struct Descripteur{
+    typedef T type;
+    typedef T* pointeur;
+};
 
 int main() {
 
@@ -17,7 +22,6 @@ int main() {
 
     mon_pointeur pp = &a;
 
-    cout << "pp: " << pp << endl;
     cout << "*pp: " << *pp << endl;
 
 

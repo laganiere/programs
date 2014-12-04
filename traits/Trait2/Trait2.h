@@ -7,23 +7,24 @@
 using namespace std;
 
 template <typename T>
-        class Pile{
-    T dessus();
-};
-
-template <typename T>
-        ostream operator<<(ostream &out, const Pile<T> &p){
-    return out << p.dessus();
-}
-
-template <class T>
-        struct est_pointeur{
+struct est_pointeur {
     static const bool valeur=false;
 };
 
-template<class T>
+template<>
 struct est_pointeur<T*>{
     static const bool valeur = true;
 };
+
+template <typename T>
+ostream operator<<(ostream &out, const Pile<T> &p){
+    return out << p.dessus();
+}
+
+template <>
+ostream operator<<(ostream &out, const Pile<T*> &p){
+    return out << *(p.dessus());
+}
+
 
 #endif // TRAIT2_H

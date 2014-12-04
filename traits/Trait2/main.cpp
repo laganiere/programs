@@ -4,18 +4,24 @@
 #include <stdlib.h>
 using namespace std;
 
+template <typename T>
+T plus2(T x) {
+
+	if (est_pointeur<T>)
+		return *x += 2;
+	else	
+		return x += static_cast<T>(2);
+}
+
 int main() {
 
-    est_pointeur<int> a;
-    est_pointeur<int*> b;
+    int a(7);
+    int* b;
 
-    est_pointeur<double> c;
-    est_pointeur<double*> d;
-
-    cout << "pointeur (a) est un pointeur: " << a.valeur << endl;
-    cout << "pointeur (b) est un pointeur: " << b.valeur << endl;
-    cout << "pointeur (c) est un pointeur: " << c.valeur << endl;
-    cout << "pointeur (d) est un pointeur: " << d.valeur << endl;
-    system("PAUSE");
+    b= &a;
+	
+    int x= plus2(a);
+    int y= plus2(b);
+	
     return 0;
 }
