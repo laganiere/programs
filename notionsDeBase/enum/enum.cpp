@@ -12,6 +12,8 @@ int main() {
 		std::cout << "C'est vert" << std::endl;
 	c = static_cast<Couleur>(6); // legal mais inconsistant
 
+	// nouveaux enum C++11
+	// pas de conversion implicite vers int
 	enum class Couleur2 { Rouge, Vert, Bleu };
 
 	Couleur2 couleur(Couleur2::Rouge);
