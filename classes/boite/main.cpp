@@ -16,6 +16,9 @@ Boite fct2() {
         d.add(new Forme);
 
         cout << "Fin de fct2" << endl;
+
+        // attention ici, il y aura RVO
+        // (return by value optimization)
         return d;
 }
 
@@ -38,11 +41,17 @@ int main()
 
         cout << "Appel a fct2" << endl;
 
+        // sans RVO on aurait:
+        // copie-construction de la variable anonyme a partir de la valeur retournee
+        // destruction de la variable locale de la fct2
+        // copie-construction de e
+        // destruction de la variable anonyme
         Boite e(fct2());
 
         cout << "Appel a fct2" << endl;
 
-        e= fct2(); // Attention! Erreur ici!
+        e= fct2(); // la variable anonyme creee par le retour de fonction
+                   // sera liberee a la fin de cet enonce
 
         cout << "Appel a vide" << endl;
 
