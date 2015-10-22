@@ -2,10 +2,13 @@
 #ifndef SAC_H
 #define SAC_H
 
-#include <stdlib>
 #include <iostream>
 #include <stdexcept>
+#include <random>
 using namespace std;
+
+template <class T, int capInitial>
+class IterateurSac;
 
 template <class T, int capInitial=64>
 class Sac {
@@ -16,17 +19,21 @@ private:
     int taille;
     int capacite;
 
+    // afin de generer une sequence pseudo-random
+    std::default_random_engine generator;
+    std::uniform_int_distribution<int> distribution;
+
     void augmenterCapacite(int cap);
     void copier(const Sac &b);
 
 public:
 
-    Sac() : taille(0), capacite(capInitial) {
+    Sac() : taille(0), capacite(capInitial), generator(7437843) {
         sac= new T[capacite];
     }
-    explicit Sac(int cap) : taille(0), capacite(cap) {
+    explicit Sac(int cap) : taille(0), capacite(cap), generator(743879) {
         if (capacite<=0) capacite=capInitial;
-        sac= new T[capacite];
+        sac= new T[capacite];        
     }
     Sac(const Sac& b) : sac(0) { copier(b); }
     ~Sac() { delete[] sac; }
@@ -38,6 +45,8 @@ public:
 
     int getTaille() const { return taille; }
     int getCapacite() const { return capacite; }
+
+    friend class IterateurSac<T,capInitial>;
 };
 
 
@@ -85,7 +94,7 @@ T Sac<T,capInitial>::
         return T();
     }
 
-    int index= rand() %taille;
+    int index= distribution(generator) %taille;
     T tmp(sac[index]);
 
     sac[index]= sac[--taille];
