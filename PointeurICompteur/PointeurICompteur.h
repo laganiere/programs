@@ -41,9 +41,9 @@ public:
     }
     PointeurI& operator=(PointeurI& src){
         if(this != &src){
-            if(src.d_compteur->liberer()){
-                delete src.d_pointee;
-                delete src.d_compteur;
+            if(d_compteur->liberer()){
+                delete d_pointee;
+                delete d_compteur;
             }
             d_pointee = src.d_pointee;
             d_compteur = src.d_compteur;
